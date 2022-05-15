@@ -29,9 +29,15 @@ namespace SnakeAndLadder
                     case NO_PLAY:
                         newposition = 0;
                         break;
-                    case LADDER:
+                     case LADDER:
                         newposition = dice;
-                        break;
+                        position += newposition;
+                        Console.WriteLine("Ladder");
+                        if (position > WIN_POSITION)
+                        {
+                            position -= newposition;
+                        }
+
                     default:
                     case SNAKE:
                         newposition = -dice;
@@ -44,13 +50,23 @@ namespace SnakeAndLadder
                 }
                 Console.WriteLine("position : " + position);
 
-
+                 position = 0;
+                newposition = dice;
+                position -= newposition;
+                Console.WriteLine("Snake");
+                if (position < START)
+                {
+                    position = START;
+                }
+                break;
+            }
+            Console.WriteLine("position :" + position);
 
 
                 {
                     Console.WriteLine("welcome to Snake And Ladder Programe");
                     Console.WriteLine("Starting Position is " + PlayerPosition);
-                    Console.WriteLine("Dice roll: " + dice);
+                    Console.WriteLine("Dice roll : " + WIN_POSITION);
 
                 }
             }
